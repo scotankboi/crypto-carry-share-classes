@@ -1,0 +1,338 @@
+{
+ "calibration": {
+  "trades_used": 35941,
+  "half_spread": {
+   "0.1": 0.4747188118583744,
+   "0.25": 0.3513364335548731,
+   "0.5": 0.058386436254935434
+  },
+  "skew": {
+   "0.1": -1.134999999999998,
+   "0.25": -3.3699999999999974,
+   "0.5": -3.6299999999999955
+  }
+ },
+ "option_trades": 176447,
+ "forward": {
+  "target_windows": 66,
+  "source_counts": {
+   "parity": 54,
+   "iv": 12
+  },
+  "ratio_median": 1.0040725688890948,
+  "ratio_min": 0.995483510053401,
+  "ratio_max": 1.0217938517004304,
+  "ann_basis_mean": 0.062143011893835844,
+  "parity_vs_iv_implied_bp_median_abs": 3.0116036463823104,
+  "windows_with_both": 64,
+  "reprice_front_month_trades": 34867,
+  "reprice_relative_error": {
+   "index": {
+    "C": {
+     "median": -0.04852434291364294,
+     "median_abs": 0.04897004265150484
+    },
+    "P": {
+     "median": 0.0468221919922992,
+     "median_abs": 0.04685220982114546
+    }
+   },
+   "forward": {
+    "C": {
+     "median": -0.0007328755742722626,
+     "median_abs": 0.003585081359658071
+    },
+    "P": {
+     "median": -0.00036284242222933694,
+     "median_abs": 0.003759952624695473
+    }
+   }
+  }
+ },
+ "data_checks": {
+  "rolls": 67,
+  "rolls_with_exactly_one_delivery_price": 67,
+  "trades_per_roll_window": {
+   "min": 1124,
+   "median": 2521.0,
+   "max": 5362
+  },
+  "dvol_hours_missing": 0,
+  "dvol_first": "2021-03-24 00:00:00+00:00"
+ },
+ "vrp": {
+  "first": "2021-03-26",
+  "last": "2026-08-31",
+  "dvol_mean": 0.5983877078085641,
+  "rv_mean": 0.5096802372177051,
+  "vrp_vol_mean": 0.08870747059085916,
+  "share_days_positive": 0.7224181360201511,
+  "by_year": {
+   "2021": {
+    "dvol": 0.913561921708185,
+    "rv_fwd": 0.7304388150381242,
+    "vrp_vol": 0.18312310667006082
+   },
+   "2022": {
+    "dvol": 0.7312339726027397,
+    "rv_fwd": 0.6061134629519846,
+    "vrp_vol": 0.12512050965075508
+   },
+   "2023": {
+    "dvol": 0.492466301369863,
+    "rv_fwd": 0.42632740565896876,
+    "vrp_vol": 0.06613889571089418
+   },
+   "2024": {
+    "dvol": 0.5755101092896174,
+    "rv_fwd": 0.4894702775064894,
+    "vrp_vol": 0.0860398317831281
+   },
+   "2025": {
+    "dvol": 0.46038821917808215,
+    "rv_fwd": 0.41284215353281006,
+    "vrp_vol": 0.047546065645272084
+   },
+   "2026": {
+    "dvol": 0.43522510288065835,
+    "rv_fwd": 0.4106483094715342,
+    "vrp_vol": 0.02457679340912424
+   }
+  }
+ },
+ "covered_calls": {
+  "25d": {
+   "months": 66,
+   "ann_return": 0.020430337217248296,
+   "ann_vol": 0.17847382150977015,
+   "worst_month": -0.20467830726298872,
+   "best_month": 0.04045048187665153,
+   "share_positive": 0.8484848484848485,
+   "max_drawdown": -0.42498357800251463,
+   "from_trades": 64,
+   "premium_mean": 0.02202216884439454,
+   "costs_mean": 0.0006488684195868394,
+   "payoff_mean": 0.01824963938808334,
+   "share_months_paid_out": 0.18181818181818182,
+   "moneyness_mean": 0.13530223515695822,
+   "iv_minus_dvol_mean": -0.04519090909090909,
+   "trade_minus_fallback_premium": -0.000201274208499185,
+   "ann_return_3x_spreads": 0.012551692460807562,
+   "usd_ann_return": 0.10861074397173565,
+   "btc_usd_ann_return": 0.08641492078230306,
+   "rally_months": 17,
+   "rally_months_mean_btc_return": -0.048955871396010084,
+   "rally_months_mean_btc_price_return": 0.22202940286165407,
+   "worst_month_expiry": "2023-01-27"
+  },
+  "10d": {
+   "months": 66,
+   "ann_return": -0.01970864935538419,
+   "ann_vol": 0.09895649356760977,
+   "worst_month": -0.16876538557860604,
+   "best_month": 0.013667315396785321,
+   "share_positive": 0.9090909090909091,
+   "max_drawdown": -0.25821986175332823,
+   "from_trades": 66,
+   "premium_mean": 0.007249876411517735,
+   "costs_mean": 0.0005492454574230005,
+   "payoff_mean": 0.007920827832947485,
+   "share_months_paid_out": 0.09090909090909091,
+   "moneyness_mean": 0.27859022120001864,
+   "iv_minus_dvol_mean": -0.007253787878787878,
+   "trade_minus_fallback_premium": -0.00017123641493685786,
+   "ann_return_3x_spreads": -0.02525167185484989,
+   "usd_ann_return": 0.06500315005414703,
+   "btc_usd_ann_return": 0.08641492078230306,
+   "rally_months": 17,
+   "rally_months_mean_btc_return": -0.023529757814572675,
+   "rally_months_mean_btc_price_return": 0.22202940286165407,
+   "worst_month_expiry": "2023-01-27"
+  }
+ },
+ "straddle": {
+  "usd_on_notional": {
+   "months": 66,
+   "ann_return": 0.06067621878555296,
+   "ann_vol": 0.12393022370452092,
+   "worst_month": -0.13045770988560262,
+   "best_month": 0.10887821490329336,
+   "share_positive": 0.5303030303030303,
+   "max_drawdown": -0.16300854521754082
+  },
+  "btc": {
+   "months": 66,
+   "ann_return": 0.060731319848309706,
+   "ann_vol": 0.12655553092762342,
+   "worst_month": -0.12500790369250953,
+   "best_month": 0.10866179571279636,
+   "share_positive": 0.5303030303030303,
+   "max_drawdown": -0.168386188166469
+  },
+  "from_trades": 66,
+  "iv_mean": 0.5474564393939394,
+  "dvol_mean": 0.596569696969697,
+  "rv_mean": 0.5097881911896978,
+  "atm_vrp_mean": 0.03766824820424158,
+  "dvol_minus_atm_iv_mean": 0.04911325757575757,
+  "share_months_iv_above_rv": 0.6060606060606061,
+  "decomposition_per_notional": {
+   "premium_minus_payoff": 0.00022310469130890076,
+   "hedge_pnl": 0.007618076370256043,
+   "spread": -0.00013352217774367166,
+   "fees": -0.0007529102948812004,
+   "hedge_costs": -0.0013981008327130428,
+   "total": 0.005556647756227031
+  },
+  "corr_with_varswap_approx": 0.8058945366304694,
+  "varswap_approx_mean": 0.004276044038736653,
+  "ann_return_3x_spreads": 0.057296771358828824,
+  "worst_month_expiry": "2022-02-25"
+ },
+ "btc_investor": {
+  "hold BTC": {
+   "months": 66,
+   "ann_return": 0.0,
+   "ann_vol": 0.0,
+   "worst_month": 0.0,
+   "best_month": 0.0,
+   "share_positive": 0.0,
+   "max_drawdown": 0.0
+  },
+  "basis carry, BTC-hedged class": {
+   "months": 66,
+   "ann_return": -0.04632348607785319,
+   "ann_vol": 0.013531172896890223,
+   "worst_month": -0.021720719105201902,
+   "best_month": 0.0006710423061673243,
+   "share_positive": 0.045454545454545456,
+   "max_drawdown": -0.21251348554934368
+  },
+  "covered call, 25-delta": {
+   "months": 66,
+   "ann_return": 0.020430337217248296,
+   "ann_vol": 0.17847382150977015,
+   "worst_month": -0.20467830726298872,
+   "best_month": 0.04045048187665153,
+   "share_positive": 0.8484848484848485,
+   "max_drawdown": -0.42498357800251463
+  },
+  "covered call, 10-delta": {
+   "months": 66,
+   "ann_return": -0.01970864935538419,
+   "ann_vol": 0.09895649356760977,
+   "worst_month": -0.16876538557860604,
+   "best_month": 0.013667315396785321,
+   "share_positive": 0.9090909090909091,
+   "max_drawdown": -0.25821986175332823
+  },
+  "short straddle, delta-hedged (1x)": {
+   "months": 66,
+   "ann_return": 0.060731319848309706,
+   "ann_vol": 0.12655553092762342,
+   "worst_month": -0.12500790369250953,
+   "best_month": 0.10866179571279636,
+   "share_positive": 0.5303030303030303,
+   "max_drawdown": -0.168386188166469
+  }
+ },
+ "btc_investor_window": [
+  "2021-03-26",
+  "2026-09-25"
+ ],
+ "signal": {
+  "rule": "sell at a roll only if DVOL > realised volatility of the previous 30 days",
+  "months_on": 50,
+  "months": 66,
+  "cc_25d": {
+   "mean_on": 0.001231976381318578,
+   "mean_off": 0.009035175584867428,
+   "ann_return_always": 0.020430337217248296,
+   "ann_return_signal": -0.003972771562353983
+  },
+  "straddle": {
+   "mean_on": 0.0036808994292368813,
+   "mean_off": 0.011418361278071252,
+   "ann_return_always": 0.06067621878555296,
+   "ann_return_signal": 0.02661666427513354
+  }
+ },
+ "stress_months": {
+  "2022-06": {
+   "period": [
+    "2022-05-27",
+    "2022-06-24"
+   ],
+   "btc_price": -0.2800090795956067,
+   "cc_25d_btc": 0.026059239841249818,
+   "cc_10d_btc": 0.0061696927078312,
+   "straddle_usd_notional": -0.02628427141264311,
+   "straddle_iv": 0.699725,
+   "straddle_rv": 0.9545015650642986
+  },
+  "2022-11": {
+   "period": [
+    "2022-10-28",
+    "2022-11-25"
+   ],
+   "btc_price": -0.18343584604520757,
+   "cc_25d_btc": 0.024052148578492125,
+   "cc_10d_btc": 0.005503634255338238,
+   "straddle_usd_notional": -0.02926804831380605,
+   "straddle_iv": 0.5208,
+   "straddle_rv": 0.6071197863243316
+  },
+  "2024-03": {
+   "period": [
+    "2024-02-23",
+    "2024-03-29"
+   ],
+   "btc_price": 0.37223496941392953,
+   "cc_25d_btc": -0.13534594924267032,
+   "cc_10d_btc": -0.06223204065424197,
+   "straddle_usd_notional": -0.054009582185532326,
+   "straddle_iv": 0.5257499999999999,
+   "straddle_rv": 0.6871299802365604
+  },
+  "2025-10": {
+   "period": [
+    "2025-09-26",
+    "2025-10-31"
+   ],
+   "btc_price": 0.00335982596057538,
+   "cc_25d_btc": 0.014245883929709562,
+   "cc_10d_btc": 0.003975092605474638,
+   "straddle_usd_notional": -0.03243123429149779,
+   "straddle_iv": 0.35677500000000006,
+   "straddle_rv": 0.46947726587612065
+  }
+ },
+ "vrp_vs_funding": {
+  "corr_funding_atm_vrp": 0.014815030899291405,
+  "corr_funding_iv": 0.2763610276436096,
+  "months": 66
+ },
+ "covered_call_class": {
+  "gross": {
+   "months": 66,
+   "ann_return": 0.020430337217248296,
+   "ann_vol": 0.17847382150977015,
+   "worst_month": -0.20467830726298875,
+   "best_month": 0.04045048187665157,
+   "share_positive": 0.8484848484848485,
+   "max_drawdown": -0.42498357800251463
+  },
+  "net": {
+   "months": 66,
+   "ann_return": -0.010824879745415572,
+   "ann_vol": 0.17628570552537762,
+   "worst_month": -0.20582899219449569,
+   "best_month": 0.03468319334386516,
+   "share_positive": 0.8484848484848485,
+   "max_drawdown": -0.44175740464469027
+  },
+  "management_fee_ann": 0.015038681331628452,
+  "performance_fee_ann": 0.018902551371739143,
+  "quarters_with_performance_fee": 6
+ }
+}

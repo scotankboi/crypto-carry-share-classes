@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.DS_Store
+data/raw/*
+!data/raw/manifest.json
+data/processed/*.parquet
+data/collect.log

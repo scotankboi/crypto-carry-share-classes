@@ -1,0 +1,118 @@
+# crypto-carry-share-classes: every assumption lives here; src/config.py rejects unknown keys.
+# Fee pages and venue rules were checked on 2026-10-04 (sources in the comments).
+
+sample:
+  start_utc: "2021-01-01"
+  end_utc: "2026-09-30 23:00"       # last hour of the factsheet month
+  margin_history_start: "2018-01-01"  # BTC hourly history for the liquidation model
+
+venues:
+  binance:
+    perp: BTCUSDT                   # USDT-margined perpetual, funding every 8h (fundingInfo, 2026-10-04)
+    spot: BTCUSDT
+    quarterly_prefix: "BTCUSDT_"    # USDT-margined quarterlies, BTCUSDT_210326 onwards (data.binance.vision)
+    maintenance_margin: 0.025       # assumption for a $10-50m BTC position bracket
+    perp_taker: 0.0003              # assumption: institutional tier; the public regular tier is 0.05%
+    delivery_fee: 0.0002            # quarterly settlement (assumption)
+  bybit:
+    perp: BTCUSDT                   # linear perpetual, launched 2020-03-15 (instruments-info)
+    maintenance_margin: 0.025
+    perp_taker: 0.0003
+  hyperliquid:
+    perp: BTC                       # funding history from 2023-05-12; comparison only
+
+costs:
+  spot_taker: 0.00045               # Binance spot VIP 3 with BNB discount (binance.com/en/fee/trading, 2026-10-04)
+  spot_half_spread_bps: 0.5
+  perp_half_spread_bps: 0.5
+  regular_tier: {spot_taker: 0.00075, perp_taker: 0.0005}   # cost sensitivity: public regular-user fees
+
+strategy:
+  capital_usdt: 100000000           # reference master fund size; capacity is not studied here
+  weights: {binance: 0.5, bybit: 0.5}
+  leverage: 2                       # perp-leg leverage, chosen in-sample: a return / liquidation-risk trade-off (README, Leverage)
+  rebalance_weekday: 0              # Monday 00:00 UTC: venue weights and margin reset to target
+  rebalance_band: 0.25              # emergency rebalance when margin / notional leaves 1/L * (1 +/- band)
+  emergency_lag_hours: 4            # hours between a band breach and the rebalance (transfers take time)
+
+master:
+  candidates: [perp_carry, quarterly_carry]
+  rule: "highest Sharpe after costs over the window both candidates cover; ties to the lower max drawdown"
+
+margin:
+  leverage_grid: [1, 2, 3, 5, 10]
+  topup_lag_hours: [1, 4, 24, 72]   # 4 = strategy.emergency_lag_hours, the engine's own lag
+  reference_probability_annual: 0.01   # a reference line for reporting, not a constraint; on this model 2x exceeds it
+  evt_threshold_quantile: 0.95
+
+share_classes:
+  valuation_hour_utc: 17            # daily NAV hour: New York noon in winter, 13:00 in summer, so FRED's noon FX is never later
+  management_fee: 0.015             # per year, accrued daily (assumption; not any firm's actual terms)
+  performance_fee: 0.20             # of gains above the high-water mark, crystallised quarterly
+  hedge_roll: monthly               # JPY / KRW classes: 1-month forward rolled at each month start
+  cross_currency_basis_bps: {JPY: 0, KRW: 0}          # base case: covered interest parity holds
+  basis_sensitivity_bps: {JPY: -30, KRW: -30}         # a negative basis raises the hedging cost
+  btc_hedge_margin: 0.33            # BTC class: share of NAV kept as margin for the long BTC perp hedge
+  btc_hedge_rebalance: daily
+
+rates:
+  fred_sofr: SOFR
+  fred_jpy_fx: DEXJPUS              # JPY per USD, noon New York
+  fred_krw_fx: DEXKOUS              # KRW per USD, noon New York
+  fred_krw_rate: IR3TIB01KRM156N    # KRW 3-month interbank, monthly (CD 91-day needs an ECOS key)
+  boj_db: FM01
+  boj_tona: STRDCLUCON              # uncollateralised overnight call rate (TONA), daily, Bank of Japan API
+
+market_data:
+  usdt_usd: coinbase                # Coinbase USDT-USD daily close (00:00 UTC) from 2021-05-04, used from the next NAV; 1.0 before
+  cme_ticker: "BTC=F"               # Yahoo continuous front month, daily close (timing vs CME settlement not verified)
+  cme_margin_rate: [0.30, 0.50]     # initial margin as a share of notional at an FCM (scenario range)
+  usde_defillama_id: 146
+
+counterparty:
+  pd_annual: [0.01, 0.03, 0.05]     # per venue per year (scenarios)
+  lgd_usd: [0.25, 0.50, 0.90]       # loss given default in USD terms (scenarios)
+  spot_at_custodian: true           # spot BTC held off-exchange; only perp margin is at the venues
+  ftx:                              # the FTX customer recovery, used for the class-currency comparison
+    petition_date: "2022-11-11"
+    btc_petition_price: 16871       # USD per BTC used to value customer claims (cointelegraph.com/news/ftx-debtors-bitcoin-claims-bankruptcy)
+    claim_class: "5A Dotcom Customer Entitlement Claims"
+    distributions:                  # cumulative share of the allowed USD claim paid to class 5A (FTX Recovery Trust, PR Newswire)
+      - {date: "2025-05-30", cumulative: 0.72}   # 2nd distribution; the 1st (Feb 2025) paid only the convenience class
+      - {date: "2025-09-30", cumulative: 0.78}   # 3rd distribution: incremental 6%
+      - {date: "2026-03-31", cumulative: 0.96}   # 4th distribution: incremental 18%
+    # the 120% cumulative figure applies to class 7 (convenience claims), not to class 5A
+
+events:
+  - {date: "2021-05-19", label: "May 2021 crash"}
+  - {date: "2022-05-09", label: "Terra/LUNA"}
+  - {date: "2022-11-08", label: "FTX"}
+  - {date: "2024-01-10", label: "US spot ETFs approved"}
+  - {date: "2025-10-10", label: "10 Oct 2025 liquidations"}
+
+breaks:
+  max_breaks: 5
+  min_segment_weeks: 13
+
+stress:
+  oct10_start: "2025-10-10 20:00"
+  oct10_end: "2025-10-11 04:00"
+  readd_minutes: [5, 15, 60, 240]   # minutes before an auto-deleveraged short is re-established
+
+vol_overlay:                        # chapter 2: a BTC-native yield from options (vol_overlay/README.md)
+  first_expiry: "2021-03-26"        # first monthly expiry after DVOL's launch (2021-03-24)
+  last_expiry: "2026-09-25"         # last monthly expiry settled in the sample
+  roll_hour_utc: 8                  # Deribit options expire and settle at 08:00 UTC
+  trade_window_minutes: 60          # option trades within +/- this of each roll price the new options
+  call_deltas: [0.25, 0.10]         # covered-call variants (Black-76 delta on the expiry's forward)
+  max_delta_miss: 0.05              # a traded strike must be within this of the target delta, else fall back
+  option_fee: 0.0003                # Deribit taker fee per option, BTC per BTC of underlying (0.03%)
+  option_fee_cap: 0.125             # ... capped at 12.5% of the option price
+  settlement_fee: 0.00015           # on options that expire in the money (0.015%), same cap
+  # Spreads and the fallback skew are calibrated from the trades themselves (src/vol_overlay/covered_call.py):
+  # the median distance of taker sells below Deribit's mark price, and the median (trade IV - DVOL), per delta bucket.
+  half_spread_multiplier: 1.0       # options are sold below mid by vega x (measured half-spread x this)
+  half_spread_sensitivity: 3.0      # the same with three times the measured spread
+  hedge_hour_utc: 8                 # the short straddle is delta-hedged once a day with the Binance perpetual
+  rv_days: 30
+  stress_months: ["2022-06", "2022-11", "2024-03", "2025-10"]   # chosen by hand as well-known stress events

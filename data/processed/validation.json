@@ -1,0 +1,51 @@
+{
+ "hours_in_sample": 50375,
+ "missing_hours": {
+  "spot_bn_1h": 14,
+  "perp_bn_1h": 0,
+  "perp_bb_1h": 0,
+  "btcusd_cb_1h": 13
+ },
+ "funding": {
+  "binance_settlements": 6296,
+  "bybit_settlements": 6296,
+  "expected_8h_settlements": 6296,
+  "common": 6296,
+  "corr_binance_bybit": 0.7291068493418071,
+  "mean_abs_diff_bp": 0.7988421219822109
+ },
+ "usdt_usd": {
+  "first": "2021-05-04",
+  "min_close": 0.996,
+  "min_close_date": "2022-05-11",
+  "days_assumed_at_par_before_first": 123
+ },
+ "last_observation": {
+  "sofr": "2026-10-01",
+  "usdjpy": "2026-09-25",
+  "usdkrw": "2026-09-25",
+  "krw_rate": "2026-08-01",
+  "tona": "2026-09-30"
+ },
+ "forward_filled_days_at_end": {
+  "usdjpy": 5,
+  "usdkrw": 5
+ },
+ "quarterly": {
+  "first_hour": "2021-02-03 09:00:00+00:00",
+  "rolls": 23,
+  "rolls_with_next_contract_priced": 23,
+  "basis_1h_before_expiry_bp_median": 4.914880866342397,
+  "basis_1h_before_expiry_bp_max": 22.773758164558178
+ },
+ "cme": {
+  "days": 1470,
+  "excluded_near_expiry_or_roll": 406,
+  "spot_missing": 3
+ },
+ "binance_vs_coinbase_bp": {
+  "median": -0.9187167469570934,
+  "p01": -23.207134493238033,
+  "p99": 17.24693829168507
+ }
+}

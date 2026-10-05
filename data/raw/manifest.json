@@ -1,0 +1,156 @@
+{
+  "spot_bn_1h": {
+    "source": "data.binance.vision spot klines",
+    "rows": 76560,
+    "first": "2018-01-01 00:00:00+00:00",
+    "last": "2026-09-30 23:00:00+00:00",
+    "fetched_utc": "2026-10-04T07:56:35+00:00"
+  },
+  "perp_bn_1h": {
+    "source": "data.binance.vision um klines",
+    "rows": 51120,
+    "first": "2020-12-01 00:00:00+00:00",
+    "last": "2026-09-30 23:00:00+00:00",
+    "fetched_utc": "2026-10-04T07:51:47+00:00"
+  },
+  "funding_bn": {
+    "source": "data.binance.vision um fundingRate",
+    "rows": 6390,
+    "first": "2020-12-01 00:00:00+00:00",
+    "last": "2026-09-30 16:00:00.002000+00:00",
+    "fetched_utc": "2026-10-04T07:52:30+00:00"
+  },
+  "quarterly_bn_1h": {
+    "source": "data.binance.vision um klines (quarterlies)",
+    "rows": 78756,
+    "first": "2021-02-03 08:00:00+00:00",
+    "last": "2026-09-30 23:00:00+00:00",
+    "fetched_utc": "2026-10-04T07:54:03+00:00"
+  },
+  "perp_bb_1h": {
+    "source": "bybit v5 kline",
+    "rows": 51120,
+    "first": "2020-12-01 00:00:00+00:00",
+    "last": "2026-09-30 23:00:00+00:00",
+    "fetched_utc": "2026-10-04T07:56:52+00:00"
+  },
+  "funding_bb": {
+    "source": "bybit v5 funding history",
+    "rows": 6390,
+    "first": "2020-12-01 00:00:00+00:00",
+    "last": "2026-09-30 16:00:00+00:00",
+    "fetched_utc": "2026-10-04T07:57:01+00:00"
+  },
+  "funding_hl": {
+    "source": "hyperliquid fundingHistory",
+    "rows": 29142,
+    "first": "2023-05-12 00:00:00+00:00",
+    "last": "2026-09-30 23:00:00+00:00",
+    "fetched_utc": "2026-10-04T07:57:18+00:00"
+  },
+  "btcusd_cb_1h": {
+    "source": "coinbase BTC-USD candles",
+    "rows": 51107,
+    "first": "2020-12-01 00:00:00+00:00",
+    "last": "2026-09-30 23:00:00+00:00",
+    "fetched_utc": "2026-10-04T07:58:39+00:00"
+  },
+  "usdtusd_cb_1d": {
+    "source": "coinbase USDT-USD candles",
+    "rows": 1976,
+    "first": "2021-05-04 00:00:00+00:00",
+    "last": "2026-09-30 00:00:00+00:00",
+    "fetched_utc": "2026-10-04T07:58:43+00:00"
+  },
+  "spot_bn_1m_oct2025": {
+    "source": "data.binance.vision 1m klines",
+    "rows": 1200,
+    "first": "2025-10-10 14:00:00+00:00",
+    "last": "2025-10-11 09:59:00+00:00",
+    "fetched_utc": "2026-10-04T07:58:44+00:00"
+  },
+  "perp_bn_1m_oct2025": {
+    "source": "data.binance.vision 1m klines",
+    "rows": 1200,
+    "first": "2025-10-10 14:00:00+00:00",
+    "last": "2025-10-11 09:59:00+00:00",
+    "fetched_utc": "2026-10-04T07:58:45+00:00"
+  },
+  "perp_bb_1m_oct2025": {
+    "source": "bybit v5 kline 1m",
+    "rows": 1200,
+    "first": "2025-10-10 14:00:00+00:00",
+    "last": "2025-10-11 09:59:00+00:00",
+    "fetched_utc": "2026-10-04T07:58:45+00:00"
+  },
+  "sofr": {
+    "source": "FRED SOFR",
+    "rows": 2123,
+    "first": "2018-04-03 00:00:00",
+    "last": "2026-10-01 00:00:00",
+    "fetched_utc": "2026-10-04T07:58:47+00:00"
+  },
+  "usdjpy": {
+    "source": "FRED DEXJPUS",
+    "rows": 13970,
+    "first": "1971-01-04 00:00:00",
+    "last": "2026-09-25 00:00:00",
+    "fetched_utc": "2026-10-04T07:58:47+00:00"
+  },
+  "usdkrw": {
+    "source": "FRED DEXKOUS",
+    "rows": 11362,
+    "first": "1981-04-13 00:00:00",
+    "last": "2026-09-25 00:00:00",
+    "fetched_utc": "2026-10-04T07:58:47+00:00"
+  },
+  "krw_rate": {
+    "source": "FRED IR3TIB01KRM156N",
+    "rows": 428,
+    "first": "1991-01-01 00:00:00",
+    "last": "2026-08-01 00:00:00",
+    "fetched_utc": "2026-10-04T07:58:48+00:00"
+  },
+  "tona": {
+    "source": "Bank of Japan FM01/STRDCLUCON",
+    "rows": 1425,
+    "first": "2020-12-01 00:00:00",
+    "last": "2026-09-30 00:00:00",
+    "fetched_utc": "2026-10-04T07:58:49+00:00"
+  },
+  "cme_btc_1d": {
+    "source": "Yahoo BTC=F",
+    "rows": 1470,
+    "first": "2020-12-01 00:00:00",
+    "last": "2026-10-04 00:00:00",
+    "fetched_utc": "2026-10-04T07:58:51+00:00"
+  },
+  "usde_supply": {
+    "source": "DefiLlama stablecoins",
+    "rows": 1029,
+    "first": "2023-12-11 00:00:00",
+    "last": "2026-10-04 00:00:00",
+    "fetched_utc": "2026-10-04T07:58:53+00:00"
+  },
+  "deribit_dvol_1h": {
+    "source": "Deribit get_volatility_index_data (BTC, 1h)",
+    "rows": 48408,
+    "first": "2021-03-24 00:00:00+00:00",
+    "last": "2026-09-30 23:00:00+00:00",
+    "fetched_utc": "2026-10-04T11:45:41+00:00"
+  },
+  "deribit_delivery": {
+    "source": "Deribit get_delivery_prices (btc_usd)",
+    "rows": 2628,
+    "first": "2016-03-18 00:00:00",
+    "last": "2026-10-04 00:00:00",
+    "fetched_utc": "2026-10-04T11:45:54+00:00"
+  },
+  "deribit_option_trades_rolls": {
+    "source": "history.deribit.com option trades around monthly expiries",
+    "rows": 176447,
+    "first": "2021-03-26 07:00:15.607000+00:00",
+    "last": "2026-09-25 08:59:49.471000+00:00",
+    "fetched_utc": "2026-10-04T11:48:28+00:00"
+  }
+}
